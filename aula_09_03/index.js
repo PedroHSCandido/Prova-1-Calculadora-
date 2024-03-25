@@ -7,7 +7,7 @@ createApp({
             primeiroNum: null,
             segundoNum: null,
             operador: null,
-            resultado: null
+            resultado: null,
             //Inicia as variaveis que serão utilizadas
         }
     },
@@ -68,7 +68,7 @@ createApp({
                     break;
                 case "/":
                     this.resultado= this.primeiroNum / this.segundoNum;
-                    break;w
+                    break;
             }
 
             this.display = this.resultado
