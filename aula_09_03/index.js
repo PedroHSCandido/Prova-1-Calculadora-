@@ -6,7 +6,8 @@ createApp({
             display: null,
             primeiroNum: null,
             segundoNum: null,
-            operador: null
+            operador: null,
+            resultado: null
             //Inicia as variaveis que serão utilizadas
         }
     },
@@ -56,19 +57,21 @@ createApp({
             this.primeiroNum = parseFloat(this.primeiroNum)
             switch (this.operador) {
 
-                 case "/":
-                    this.display = this.primeiroNum/this.segundoNum; //Divide o primeiro e o segundo numero
-                    break;
-                case "*":
-                    this.display = this.primeiroNum * this.segundoNum; //Multiplica o primeiro e o segundo numero
-                    break;
                 case "+":
-                    this.display = this.primeiroNum + this.segundoNum; //Soma o primeiro e o segundo numero
+                    this.resultado = this.primeiroNum + this.segundoNum;
                     break;
                 case "-":
-                    this.display = this.primeiroNum - this.segundoNum; //Subtrai o primeiro e o segundo numero
+                    this.resultado = this.primeiroNum - this.segundoNum;
                     break;
+                case "*":
+                    this.resultado= this.primeiroNum * this.segundoNum;
+                    break;
+                case "/":
+                    this.resultado= this.primeiroNum / this.segundoNum;
+                    break;w
             }
+
+            this.display = this.resultado
         },
 
         lidarClear() { //Zera os valores de todas variaveis
@@ -80,10 +83,10 @@ createApp({
 
         lidarNumero(numero) {
             console.log(numero);
-            if (this.display === null) {
-                this.display = numero;
+            if (this.display === null) { //Verifica se ja foi inserido algum numero no display
+                this.display = numero; //Se não houver nada adicionado apenas adiciona um novo numero
             } else {
-                this.display += numero;
+                this.display += numero;//Se tiver um numero concatena para construir o numero desejado
             }
         }
     }
